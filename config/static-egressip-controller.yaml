@@ -22,7 +22,7 @@ spec:
       priorityClassName: system-node-critical
       containers:
         - name: static-egressip-controller
-          image: nirmata/static-egressip-controller:latest
+          image: ghcr.io/levalicious/kube-static-egress-ip/controller:latest
           imagePullPolicy: Always
           env:
             - name: NODE_NAME
