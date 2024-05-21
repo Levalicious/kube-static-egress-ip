@@ -31,8 +31,3 @@ jobs:
           docker build -t ghcr.io/$( echo "${{ github.repository }}" | awk '{print tolower($0)}' )/$image_name:latest -f $dockerfile .
           docker push ghcr.io/$( echo "${{ github.repository }}" | awk '{print tolower($0)}' )/$image_name:latest
         done
-    - name: Upload Docker images as artifacts
-      uses: actions/upload-artifact@v2
-      with:
-        name: docker-images
-        path: "*.tar"
