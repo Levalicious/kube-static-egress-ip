@@ -28,7 +28,7 @@ jobs:
         dockerfiles=$(find . -name "Dockerfile.*")
         for dockerfile in $dockerfiles; do
           image_name="${dockerfile#./Dockerfile.}"
-          docker build -t ghcr.io/${{ github.repository }}/$image_name:latest -f $dockerfile .
+          docker build -t ghcr.io/${{ github.repository@L }}/$image_name:latest -f $dockerfile .
           docker push ghcr.io/${{ github.repository }}/$image_name:latest
           docker save ghcr.io/${{ github.repository }}/$image_name:latest > $image_name.tar
           echo "::set-output name=image_name::$image_name"
