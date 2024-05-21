@@ -16,11 +16,10 @@ spec:
       labels:
         k8s-app: static-egressip-controller
         tier: node
-      annotations:
-        scheduler.alpha.kubernetes.io/critical-pod: ""
     spec:
       serviceAccountName: static-egressip-controller
       serviceAccount: static-egressip-controller
+      priorityClassName: system-node-critical
       containers:
         - name: static-egressip-controller
           image: nirmata/static-egressip-controller:latest
