@@ -25,7 +25,7 @@ jobs:
         password: ${{ secrets.GITHUB_TOKEN }}
     - name: Build and upload Docker images
       run: |
-        dockerfiles=$(find . -name "Dockerfile.*")
+        dockerfiles=$(find . -maxdepth 1 -name "Dockerfile.*")
         for dockerfile in $dockerfiles; do
           image_name="${dockerfile#./Dockerfile.}"
           docker build -t ghcr.io/$( echo "${{ github.repository }}" | awk '{print tolower($0)}' )/$image_name:latest -f $dockerfile .
