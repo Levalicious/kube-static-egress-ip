@@ -23,7 +23,7 @@ spec:
       serviceAccountName: static-egressip-controller
       containers:
       - name: static-egressip-gateway-manager
-        image: nirmata/static-egressip-gateway-manager:latest
+        image: ghcr.io/levalicious/kube-static-egress-ip/manager:latest
         imagePullPolicy: Always
         env:
         - name: POD_IP
